@@ -31,7 +31,8 @@ public class TerminalController {
     @GetMapping
     public ResponseEntity<?> checkTerminalByPhone(@RequestParam String phone){
         try {
-            Optional<TerminalEntity> entities = terminalService.findTerminalByPhone(phone);
+            System.out.println(phone);
+            List<TerminalEntity> entities = terminalService.findTerminalByPhone(phone);
             List<TerminalDTO> dtos = entities.stream().map(TerminalDTO::new).collect(Collectors.toList());
 
             HttpHeaders headers= new HttpHeaders();

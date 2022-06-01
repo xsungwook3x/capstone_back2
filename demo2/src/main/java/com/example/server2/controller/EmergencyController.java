@@ -38,7 +38,7 @@ public class EmergencyController {
         StatusDTO message = new StatusDTO();
         message.setStatus(StatusEnum.OK);
         message.setMessage("성공 코드");
-        ;
+
 
         return new ResponseEntity<>(message,headers, HttpStatus.OK);
     }

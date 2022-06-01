@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Builder
@@ -36,4 +37,6 @@ public class TerminalInfoEntity {
     private int illuminance_sensor;
 
     private int flame_sensor;
+
+    private int sound_sensor;
 }

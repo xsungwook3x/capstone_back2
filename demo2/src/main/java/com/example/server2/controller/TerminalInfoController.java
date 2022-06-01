@@ -34,7 +34,7 @@ public class TerminalInfoController {
             TerminalInfoEntity entity = TerminalInfoDTO.toEntity(dto);
 
             entity.setId(null);
-            LocalDateTime currentDateTime=LocalDateTime.now();
+            LocalDateTime currentDateTime=LocalDateTime.now().withNano(0);
             currentDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
             entity.setTime(currentDateTime);
 
