@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.nio.charset.Charset;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -34,7 +36,11 @@ public class TerminalInfoController {
             TerminalInfoEntity entity = TerminalInfoDTO.toEntity(dto);
 
             entity.setId(null);
-            LocalDateTime currentDateTime=LocalDateTime.now().withNano(0);
+
+            ZonedDateTime nowUTC =ZonedDateTime.now(ZoneId.of("UTC"));
+
+            LocalDateTime currentDateTime =nowUTC.withZoneSameInstant(ZoneId.of("Asia/Seoul")).toLocalDateTime().withNano(0);
+
             currentDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
             entity.setTime(currentDateTime);
 
